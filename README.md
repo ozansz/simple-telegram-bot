@@ -21,6 +21,13 @@ Or you can just run the `bot.py` script itself:
 ```shell
 python3 bot.py
 ```
+
+### Debug
+
+You can toggle extra debug messages through the `DEBUG` variable in `bot.py` file.
+
+`DEBUG = 0` means no extra debug messages will be printed.
+
 ## Bot Commands
 
 ### /start
