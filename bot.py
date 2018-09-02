@@ -32,7 +32,7 @@ def video_at(bot, update):
 
 def haber_at(bot, update):
     pg = requests.get("https://www.bbc.com/news")
-    print("+get", flush=True)
+
     if pg.status_code != 200:
         update.message.reply_text("Aman! Bir hata oldu :(")
         return
@@ -40,13 +40,12 @@ def haber_at(bot, update):
     tree = html.fromstring(pg.text)
 
     news_list = list()
-    print("-for", flush=True)
     for i in range(1, 11):
         elem = tree.xpath("//li[@data-entityid='most-popular-read-{}']//a".format(i))
-        print("  ~for elem:", elem, flush=True)
+
         if elem != []:
             news_list.append(elem[0])
-    print("+for news_list:", news_list)
+
     if len(news_list) == 0:
         update.message.reply_text("Aman! Bir hata oldu! Hiç haber bulamadım :(")
         return
